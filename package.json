@@ -16,7 +16,15 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.2"
   },
-  "devDependencies": {
-    "rollup": "^4.46.2"
-  }
+  "optionalDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.46.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "description": "```sh npm create astro@latest -- --template basics ```",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
