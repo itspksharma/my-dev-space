@@ -20,6 +20,6 @@
     "rollup": "^4.46.2"
   },
   "optionalDependencies": {
-    "@rollup/rollup-win32-x64-msvc": "^4.46.2"
+  "@rollup/rollup-win32-x64-msvc": "4.46.2"
   }
 }
