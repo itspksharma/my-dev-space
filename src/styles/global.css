@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Custom Scrollbar (Keep if you want it) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+}
+
+/*by Pawan Kumar Sharma*/

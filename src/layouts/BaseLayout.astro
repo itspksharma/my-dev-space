@@ -1,0 +1,23 @@
+---
+// by Pawan Kumar Sharma
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Seo from "../components/Seo.astro";
+
+const { title = "Pawan Sharma | Developer Portfolio", description = "Explore my full-stack developer portfolio with projects, blogs, and services.", image = "/logo.png" } = Astro.props;
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <Seo {title} {description} {image} />
+  </head>
+  <body class="bg-white text-gray-900 dark:bg-black dark:text-white transition-colors duration-300">
+    <Navbar />
+    
+    <main class="min-h-screen">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

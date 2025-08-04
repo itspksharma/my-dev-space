@@ -1,0 +1,21 @@
+---
+// by Pawan Kumar Sharma
+import ThemeToggle from "./ThemeToggle.astro";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm py-6">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+    
+    <p class="text-center md:text-left">
+      &copy; {currentYear} Pawan Kumar Sharma. All rights reserved.
+    </p>
+
+    <div class="flex items-center space-x-4">
+      <a href="https://github.com/itspksharma" class="hover:text-indigo-500" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/itspksharma98/" class="hover:text-indigo-500" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <ThemeToggle />
+    </div>
+
+  </div>
+</footer>

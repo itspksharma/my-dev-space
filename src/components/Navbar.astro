@@ -1,0 +1,97 @@
+---
+// by Pawan Kumar Sharma
+import ThemeToggle from "./ThemeToggle.astro";
+---
+<nav class="bg-white dark:bg-gray-900 shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center relative">
+    <a href="/" class="text-2xl font-bold text-gray-900 dark:text-white">AskDevPK</a>
+    
+    <!-- Desktop Nav -->
+<div class="hidden lg:flex gap-6 items-center">
+  <a href="/" class="relative group inline-block px-2 py-1">
+    <span class="text-base text-gray-800 dark:text-gray-200 transition-colors duration-300 group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+      Home
+    </span>
+    <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+  </a>
+
+  <a href="/about" class="relative group inline-block px-2 py-1">
+    <span class="text-base text-gray-800 dark:text-gray-200 transition-colors duration-300 group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+      About
+    </span>
+    <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+  </a>
+
+  <a href="/services" class="relative group inline-block px-2 py-1">
+    <span class="text-base text-gray-800 dark:text-gray-200 transition-colors duration-300 group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+      Services
+    </span>
+    <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+  </a>
+
+  <a href="/projects" class="relative group inline-block px-2 py-1">
+    <span class="text-base text-gray-800 dark:text-gray-200 transition-colors duration-300 group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+      Projects
+    </span>
+    <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+  </a>
+
+  <a href="/blog" class="relative group inline-block px-2 py-1">
+    <span class="text-base text-gray-800 dark:text-gray-200 transition-colors duration-300 group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+      Blog
+    </span>
+    <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+  </a>
+
+  <a href="/contact" class="relative group inline-block px-2 py-1">
+    <span class="text-base text-gray-800 dark:text-gray-200 transition-colors duration-300 group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+      Contact
+    </span>
+    <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+  </a>
+</div>
+
+
+    <!-- Theme Toggle Outside -->
+    <div class="flex items-center gap-3">
+      <ThemeToggle />
+      <button id="menu-btn" class="lg:hidden text-2xl dark:text-white focus:outline-none">
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div
+    id="mobile-menu"
+    class="fixed top-0 left-0 h-full w-1/2 bg-white dark:bg-gray-800 backdrop-blur-md z-40 p-6 flex flex-col gap-4 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+  >
+    <a href="/" class="hover:text-indigo-500 dark:hover:text-indigo-400">Home</a>
+    <a href="/about" class="hover:text-indigo-500 dark:hover:text-indigo-400">About</a>
+    <a href="/services" class="hover:text-indigo-500 dark:hover:text-indigo-400">Services</a>
+    <a href="/projects" class="hover:text-indigo-500 dark:hover:text-indigo-400">Projects</a>
+    <a href="/blog" class="hover:text-indigo-500 dark:hover:text-indigo-400">Blog</a>
+    <a href="/contact" class="hover:text-indigo-500 dark:hover:text-indigo-400">Contact</a>
+  </div>
+
+  <div
+    id="overlay"
+    class="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-30 hidden lg:hidden"
+  ></div>
+
+  <script is:client>
+    const menuBtn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const overlay = document.getElementById("overlay");
+
+    menuBtn?.addEventListener("click", () => {
+      menu?.classList.toggle("-translate-x-full");
+      overlay?.classList.toggle("hidden");
+    });
+
+    overlay?.addEventListener("click", () => {
+      menu?.classList.add("-translate-x-full");
+      overlay?.classList.add("hidden");
+    });
+  </script>
+</nav>
