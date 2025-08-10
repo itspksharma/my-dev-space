@@ -2,20 +2,35 @@
 // by Pawan Kumar Sharma
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Seo from "../components/Seo.astro";
-
+import aboutData from "../data/about.json";
 ---
 
-<BaseLayout title="About | Pawan Sharma" description="Learn more about Pawan Sharma, his journey, passion for coding, and mission as a developer.">
-  <Seo title="About | Pawan Sharma" description="Learn more about Pawan Sharma, his journey, passion for coding, and mission as a developer." />
+<BaseLayout title={`About | Pawan Sharma`} description="Learn more about Pawan Sharma, his skills, work style, and personal interests.">
+  <Seo title="About | Pawan Sharma" description="Learn more about Pawan Sharma, his skills, work style, and personal interests." />
   
-  <section class="max-w-4xl mx-auto px-4 py-16 text-gray-800 dark:text-gray-100">
-    <h1 class="text-4xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">About Me</h1>
+  <section class="max-w-5xl mx-auto px-4 py-16 text-gray-800 dark:text-gray-100">
+    
+    <!-- Intro -->
+    <h1 class="text-4xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">{aboutData.title}</h1>
+    <p class="text-lg leading-relaxed mb-12">
+      {aboutData.intro}
+    </p>
+
+    <!-- Skills -->
+    <h2 class="text-2xl font-semibold mt-12 mb-6 text-gray-900 dark:text-white">Skills & Tools</h2>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {aboutData.skills.map(skill => (
+        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow">
+          <h3 class="font-semibold mb-3">{skill.title}</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{skill.items}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Personal touch -->
+    <h2 class="text-2xl font-semibold mt-12 mb-6 text-gray-900 dark:text-white">{aboutData.beyondCodingTitle}</h2>
     <p class="text-lg leading-relaxed">
-      I'm <strong>Pawan Kumar Sharma</strong>, a passionate full-stack developer dedicated to building modern web applications with clean code and great performance.
-      <br /><br />
-      My journey began with curiosity and transformed into a career driven by a love for technology and problem-solving. I specialize in building responsive, accessible, and SEO-optimized websites using tools like React, Tailwind CSS, Node.js, Astro, and more.
-      <br /><br />
-      When I’m not coding, I’m usually learning something new, sharing knowledge, or working on meaningful side projects like <em>Just Download</em>.
+      {aboutData.beyondCodingText}
     </p>
   </section>
 </BaseLayout>

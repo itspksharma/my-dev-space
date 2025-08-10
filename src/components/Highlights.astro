@@ -1,0 +1,39 @@
+---
+import highlights from "../data/highlights.json";
+---
+
+<section class="py-16 px-4 md:px-10 bg-white dark:bg-gray-900">
+  <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+    Featured Projects
+  </h2>
+
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-center">
+    {highlights.featuredProjects.map((project) => (
+      <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition">
+        <img src={project.image} alt={project.title} class="w-full h-48 object-cover rounded mb-4" />
+        <h3 class="font-semibold text-lg mb-2 text-blue-600 dark:text-blue-400">{project.title}</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400">{project.description}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="text-center mt-10">
+    <a href="/projects" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
+      View All Projects
+    </a>
+  </div>
+</section>
+
+<section class="py-16 px-4 md:px-10 bg-gray-50 dark:bg-gray-800">
+  <div class="grid gap-6 md:grid-cols-4 text-center">
+    {highlights.quickActions.map((action) => (
+      <div class="p-6 bg-white dark:bg-gray-900 rounded-lg shadow hover:shadow-lg transition">
+        <h3 class={`font-semibold text-xl mb-3 text-${action.color}-600 dark:text-${action.color}-400`}>{action.title}</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">{action.description}</p>
+        <a href={action.link} class={`inline-block bg-${action.color}-600 text-white px-5 py-2 rounded-lg shadow hover:bg-${action.color}-700 transition`}>
+          {action.buttonLabel}
+        </a>
+      </div>
+    ))}
+  </div>
+</section>

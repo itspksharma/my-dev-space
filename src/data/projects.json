@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Just Download",
+    "description": "Cross-platform video downloader with support for desktop, mobile, and Chrome extension.",
+    "thumbnail": "/images/projects/just-download.png",
+    "sourceLink": "https://github.com/itspksharma/just-download",
+    "demoLink": ""
+  },
+  {
+    "title": "My Portfolio",
+    "description": "This personal developer portfolio website built with Astro and Tailwind CSS.",
+    "thumbnail": "/images/projects/my-portfolio.png",
+    "sourceLink": "https://github.com/itspksharma/my-portfolio",
+    "demoLink": "https://itspksharma.github.io/my-portfolio/"
+  },
+  {
+    "title": "Docker Environments",
+    "description": "Organized Docker setup for various stacks (PHP, Node, Python, etc.) for local development without installing dependencies.",
+    "thumbnail": "/images/projects/docker-environments.png",
+    "sourceLink": "https://github.com/itspksharma",
+    "demoLink": ""
+  }
+]

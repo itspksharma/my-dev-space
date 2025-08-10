@@ -1,0 +1,54 @@
+{
+  "featuredProjects": [
+    {
+      "title": "E-Commerce Website",
+      "image": "/projects/project1.jpg",
+      "description": "A modern e-commerce platform with real-time cart, secure checkout, and blazing fast load times."
+    },
+    {
+      "title": "Portfolio Website",
+      "image": "/projects/project2.jpg",
+      "description": "Responsive personal portfolio built with Astro, Tailwind CSS, and SEO-optimized structure."
+    },
+    {
+      "title": "Mobile App",
+      "image": "/projects/project3.jpg",
+      "description": "Android app for task management with offline support and cloud sync."
+    },
+    {
+      "title": "Mobile App",
+      "image": "/projects/project3.jpg",
+      "description": "Android app for task management with offline support and cloud sync."
+    }
+  ],
+  "quickActions": [
+    {
+      "title": "Want to know about me?",
+      "color": "indigo",
+      "description": "Discover my journey, skills, and passion for development.",
+      "link": "/about",
+      "buttonLabel": "Learn More"
+    },
+    {
+      "title": "Check out my blogs",
+      "color": "green",
+      "description": "Read insights, tips, and tutorials on web development.",
+      "link": "/blog",
+      "buttonLabel": "Read Blogs"
+    },
+    {
+      "title": "What I Do",
+      "color": "violet",
+      "description": "Explore the services I offer to help bring your ideas to life.",
+      "link": "/services",
+      "buttonLabel": "View Services"
+    },
+    {
+      "title": "Want to hire me?",
+      "color": "blue",
+      "description": "Let’s work together and bring your ideas to life.",
+      "link": "/contact",
+      "buttonLabel": "Contact Me"
+    }
+  ]
+}

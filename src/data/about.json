@@ -1,0 +1,20 @@
+{
+  "title": "About Me",
+  "intro": "I build clean, fast, and user-friendly digital experiences — from modern websites to functional web apps. I enjoy turning ideas into reality, whether it’s for a personal project or a client’s vision. My approach is simple: write clean code, focus on performance, and create designs that people love to use.",
+  "skills": [
+    {
+      "title": "Frontend",
+      "items": "HTML, CSS, JavaScript, React, Astro, Tailwind CSS"
+    },
+    {
+      "title": "Backend",
+      "items": "Node.js, Express, Python, .NET, PHP, REST APIs, MongoDB, MySQL"
+    },
+    {
+      "title": "Tools & Hosting",
+      "items": "Git, GitHub, VS Code, Figma, Cloudflare, Netlify"
+    }
+  ],
+  "beyondCodingTitle": "Beyond Coding",
+  "beyondCodingText": "Life isn’t just about code — I love exploring new places, discovering local food spots, and going on long bike or car rides to clear my head. I enjoy meeting people with fresh perspectives, learning new skills outside tech, and sometimes just getting lost in a journey with no fixed destination. These experiences inspire my creativity and keep my mind fresh for building better solutions."
+}

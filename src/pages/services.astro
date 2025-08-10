@@ -2,32 +2,51 @@
 // by Pawan Kumar Sharma
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Seo from "../components/Seo.astro";
+import servicesData from "../data/services.json";
 ---
 
-<BaseLayout title="Services | Pawan Sharma" description="Explore services offered by Pawan Sharma including web development, app development, and more.">
-  <Seo title="Services | Pawan Sharma" description="Explore services offered by Pawan Sharma including web development, app development, and more." />
+<BaseLayout title={`${servicesData.pageTitle} | Pawan Sharma`} description={servicesData.pageDescription}>
+  <Seo title={`${servicesData.pageTitle} | Pawan Sharma`} description={servicesData.pageDescription} />
   
   <section class="max-w-6xl mx-auto px-4 py-16 text-gray-800 dark:text-gray-100">
-    <h1 class="text-4xl font-bold mb-10 text-indigo-600 dark:text-indigo-400">Services</h1>
+    <h1 class="text-4xl font-bold mb-10 text-indigo-600 dark:text-indigo-400 text-center">
+      {servicesData.pageTitle}
+    </h1>
+    <p class="text-lg text-center max-w-2xl mx-auto mb-12 text-gray-600 dark:text-gray-400">
+      {servicesData.pageDescription}
+    </p>
+
+    <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold mb-2 text-indigo-500">Web Development</h2>
-        <p>
-          Full-stack web development using modern technologies (React, Astro, Node, etc.), ensuring performance and SEO best practices.
-        </p>
-      </div>
-      <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold mb-2 text-indigo-500">Mobile App Development</h2>
-        <p>
-          Android app development using React Native CLI or Java, with optimized UI and integrated APIs.
-        </p>
-      </div>
-      <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold mb-2 text-indigo-500">API Integration</h2>
-        <p>
-          Secure, scalable REST API or backend service integration using Flask, Node.js or Express.
-        </p>
-      </div>
+      {servicesData.services.map(service => (
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition">
+          <div class="mb-4 text-indigo-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+            </svg>
+          </div>
+          <h2 class="text-xl font-semibold mb-2 text-indigo-500">{service.title}</h2>
+          <p>{service.description}</p>
+        </div>
+      ))}
     </div>
+
+    <!-- How I Work Section -->
+    <section class="mt-20 text-center">
+      <h2 class="text-3xl font-bold mb-10 text-indigo-600 dark:text-indigo-400">How I Work</h2>
+      <div class="relative max-w-5xl mx-auto">
+        <div class="border-l-4 border-indigo-500 dark:border-indigo-400 ml-4">
+          {servicesData.workflow.map(step => (
+            <div class={`mb-8 ml-6 ${step.step === "5" ? 'mb-0' : ''}`}>
+              <div class="flex items-center mb-2">
+                <span class="bg-indigo-500 text-white w-8 h-8 flex items-center justify-center rounded-full font-bold">{step.step}</span>
+                <h3 class="ml-4 text-xl font-semibold">{step.title}</h3>
+              </div>
+              <p class="text-gray-600 dark:text-gray-400 ml-12">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   </section>
 </BaseLayout>

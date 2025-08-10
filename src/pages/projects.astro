@@ -1,7 +1,7 @@
 ---
-// by Pawan Kumar Sharma
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Seo from "../components/Seo.astro";
+import projects from "../data/projects.json";
 ---
 
 <BaseLayout title="Projects | Pawan Sharma" description="Explore projects by Pawan Sharma - web apps, mobile apps, and open-source contributions.">
@@ -11,23 +11,36 @@ import Seo from "../components/Seo.astro";
     <h1 class="text-4xl font-bold mb-10 text-indigo-600 dark:text-indigo-400">Projects</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold mb-2 text-indigo-500">Just Download</h2>
-        <p class="mb-2">Cross-platform video downloader with support for desktop, mobile, and Chrome extension.</p>
-        <a href="https://github.com/itspksharma/just-download" target="_blank" class="text-sm text-indigo-600 dark:text-indigo-400 underline">View Source</a>
-      </div>
+      {projects.map((project) => (
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition flex flex-col">
+          <img src={project.thumbnail} alt={project.title} class="rounded mb-4 w-full h-48 object-cover" loading="lazy" />
 
-      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold mb-2 text-indigo-500">My Portfolio</h2>
-        <p class="mb-2">This personal developer portfolio website built with Astro and Tailwind CSS.</p>
-        <a href="https://itspksharma.github.io/my-portfolio/" target="_blank" class="text-sm text-indigo-600 dark:text-indigo-400 underline">Live Preview</a>
-      </div>
+          <h2 class="text-xl font-semibold mb-2 text-indigo-500">{project.title}</h2>
+          <p class="mb-4 flex-grow">{project.description}</p>
 
-      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
-        <h2 class="text-xl font-semibold mb-2 text-indigo-500">Docker Environments</h2>
-        <p class="mb-2">Organized Docker setup for various stacks (PHP, Node, Python, etc.) for local development without installing dependencies.</p>
-        <a href="https://github.com/itspksharma" target="_blank" class="text-sm text-indigo-600 dark:text-indigo-400 underline">GitHub</a>
-      </div>
+          <div class="flex gap-3 mt-auto">
+            <a
+              href={project.sourceLink || "#"}
+              class={`px-4 py-2 rounded text-sm font-medium ${project.sourceLink 
+                ? "bg-indigo-600 text-white hover:bg-indigo-700" 
+                : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"}`}
+              target={project.sourceLink ? "_blank" : "_self"}
+            >
+              View Source
+            </a>
+
+            <a
+              href={project.demoLink || "#"}
+              class={`px-4 py-2 rounded text-sm font-medium ${project.demoLink 
+                ? "bg-green-600 text-white hover:bg-green-700" 
+                : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"}`}
+              target={project.demoLink ? "_blank" : "_self"}
+            >
+              Live Demo
+            </a>
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 </BaseLayout>

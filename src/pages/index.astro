@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
+import Highlights from "../components/Highlights.astro";
 import Seo from "../components/Seo.astro";
 ---
 
@@ -10,10 +11,10 @@ import Seo from "../components/Seo.astro";
     description="Portfolio of Pawan Kumar Sharma (AskDevPK). Explore projects, services, blogs, and get in touch." 
   />
   
-  <!-- 🔥 Animated gradient background wrapper -->
   <div class="bg-animated-gradient min-h-screen relative z-0">
     <main class="relative z-10">
       <Hero />
+      <Highlights />
     </main>
   </div>
 </BaseLayout>

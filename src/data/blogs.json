@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Why I Chose Astro for My Portfolio",
+    "date": "August 3, 2025",
+    "description": "Astro makes building fast, optimized websites simple and enjoyable. In this post, I explain why I migrated my personal portfolio to Astro with Tailwind CSS.",
+    "thumbnail": "/images/blogs/astro-portfolio.png",
+    "link": "/blog/why-i-chose-astro"
+  },
+  {
+    "title": "How I Built Just Download",
+    "date": "July 22, 2025",
+    "description": "Here’s a deep dive into how I built the Just Download app from scratch — from the backend with Flask to the frontend with React Native and Electron.",
+    "thumbnail": "/images/blogs/just-download.png",
+    "link": "/blog/how-i-built-just-download"
+  }
+]

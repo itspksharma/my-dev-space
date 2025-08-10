@@ -1,0 +1,58 @@
+{
+  "pageTitle": "Services",
+  "pageDescription": "I offer high-quality, performance-focused digital solutions that help you grow your business and reach more people.",
+  "services": [
+    {
+      "icon": "M3 4a1 1 0 011-1h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z",
+      "title": "Web Development",
+      "description": "Fast, SEO-optimized websites using React, Astro, and Tailwind CSS — designed to load under 1 second and rank higher on search engines."
+    },
+    {
+      "icon": "M12 4v16m8-8H4",
+      "title": "Mobile App Development",
+      "description": "Custom Android apps with React Native CLI or Java — lightweight, responsive, and integrated with APIs for real-world use."
+    },
+    {
+      "icon": "M4 8h16M4 16h16",
+      "title": "API Development & Integration",
+      "description": "Scalable REST APIs using Flask, Node.js, or Express — secure, fast, and capable of handling thousands of requests per minute."
+    },
+    {
+      "icon": "M14 10h4v4h-4m-4-4H6v4h4m4-12h-4v4h4m0 8h-4v4h4",
+      "title": "Website Optimization & SEO",
+      "description": "Improve website speed, accessibility, and SEO rankings to ensure better visibility and higher conversions."
+    },
+    {
+      "icon": "M12 8v8m-4-4h8",
+      "title": "Maintenance & Support",
+      "description": "Ongoing updates, security patches, bug fixes, and new feature implementations for your website or app."
+    }
+  ],
+  "workflow": [
+    {
+      "step": "1",
+      "title": "Plan",
+      "description": "Understanding your requirements, setting clear goals, and defining the project scope."
+    },
+    {
+      "step": "2",
+      "title": "Design",
+      "description": "Crafting modern, user-friendly, and responsive UI/UX layouts for all devices."
+    },
+    {
+      "step": "3",
+      "title": "Build",
+      "description": "Developing fast, secure, and scalable applications using the latest technologies."
+    },
+    {
+      "step": "4",
+      "title": "Launch",
+      "description": "Deploying the project to production with zero downtime and full monitoring."
+    },
+    {
+      "step": "5",
+      "title": "Support",
+      "description": "Providing continuous improvements, updates, and technical assistance."
+    }
+  ]
+}
