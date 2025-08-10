@@ -24,7 +24,7 @@
   "quickActions": [
     {
       "title": "Want to know about me?",
-      "color": "indigo",
+      "color": "blue",
       "description": "Discover my journey, skills, and passion for development.",
       "link": "/about",
       "buttonLabel": "Learn More"
@@ -38,14 +38,14 @@
     },
     {
       "title": "What I Do",
-      "color": "violet",
+      "color": "blue",
       "description": "Explore the services I offer to help bring your ideas to life.",
       "link": "/services",
       "buttonLabel": "View Services"
     },
     {
       "title": "Want to hire me?",
-      "color": "blue",
+      "color": "green",
       "description": "Let’s work together and bring your ideas to life.",
       "link": "/contact",
       "buttonLabel": "Contact Me"
