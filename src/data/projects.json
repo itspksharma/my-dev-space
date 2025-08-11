@@ -1,23 +1,37 @@
 [
   {
-    "title": "Just Download",
+    "title": "Just-Download (Product website)",
     "description": "Cross-platform video downloader with support for desktop, mobile, and Chrome extension.",
-    "thumbnail": "/images/projects/just-download.png",
-    "sourceLink": "https://github.com/itspksharma/just-download",
+    "thumbnail": "/just-download-website.png",
+    "sourceLink": "https://github.com/itspksharma/just-download-website",
+    "demoLink": "https://justdownload.askdevpk.me/"
+  },
+  {
+    "title": "Docker Multi-Environment Setup",
+    "description": "Organized Docker setup for various stacks (PHP, Node, Python, etc.) for local development without installing dependencies.",
+    "thumbnail": "/docker-setup.png",
+    "sourceLink": "https://github.com/itspksharma/itspksharma-docker-multi-env",
+    "demoLink": ""
+  },
+  {
+    "title": "Mood-Tab (Chrome Extension)",
+    "description": "A clean, animated and motivational Chrome new tab extension that plays background videos based on your selected mood: Sad, Moody, or Love.",
+    "thumbnail": "/mood-tab.png",
+    "sourceLink": "https://github.com/itspksharma/chrome-mood-tab-extension", 
     "demoLink": ""
   },
   {
     "title": "My Portfolio",
-    "description": "This personal developer portfolio website built with Astro and Tailwind CSS.",
-    "thumbnail": "/images/projects/my-portfolio.png",
+    "description": "This is my fully responsive, animated, and dynamic personal portfolio website built with HTML, CSS, and JavaScript",
+    "thumbnail": "profile-portfolio.png",
     "sourceLink": "https://github.com/itspksharma/my-portfolio",
-    "demoLink": "https://itspksharma.github.io/my-portfolio/"
+    "demoLink": "https://profile.askdevpk.me/"
   },
   {
-    "title": "Docker Environments",
-    "description": "Organized Docker setup for various stacks (PHP, Node, Python, etc.) for local development without installing dependencies.",
-    "thumbnail": "/images/projects/docker-environments.png",
-    "sourceLink": "https://github.com/itspksharma",
+    "title": "Grih Chhaya (A Rental App)",
+    "description": "A culturally-inspired house rental app that offers short stays with a homely Indian touch. ",
+    "thumbnail": "Grih-Chhaya.png",
+    "sourceLink": "https://github.com/itspksharma/grih-chhaya_a_rental_app",
     "demoLink": ""
   }
 ]

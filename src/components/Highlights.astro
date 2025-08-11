@@ -1,39 +1,226 @@
 ---
+import projects from "../data/projects.json";
 import highlights from "../data/highlights.json";
+
+const maxVisible = 5;
+
+function shuffleArray(arr) {
+  let array = arr.slice();
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const displayedProjects = shuffleArray(projects).slice(0, maxVisible);
+
+let blogs = [];
+try {
+  const res = await fetch("https://dev.to/api/articles?username=itspksharma");
+  if (res.ok) {
+    const data = await res.json();
+    blogs = data.slice(0, maxVisible);
+  }
+} catch (e) {
+  console.error("Failed to fetch blogs:", e);
+}
 ---
+<section class="py-16 px-4 md:px-10 bg-white dark:bg-gray-900 max-w-7xl mx-auto">
+  <!-- Projects -->
+  <h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Featured Projects</h2>
+  <div class="max-w-5xl mx-auto">
+    <div class="swiper projects-swiper">
+      <div class="swiper-wrapper">
+        {displayedProjects.length === 0 ? (
+          <div class="swiper-slide p-4">
+            <p class="w-full text-center p-10 text-gray-600 dark:text-gray-400">Projects coming soon...</p>
+          </div>
+        ) : (
+          displayedProjects.map(project => (
+            <div class="swiper-slide p-4" key={project.title}>
+<a
+  href={project.demoLink || project.sourceLink || '#'}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="block bg-white dark:bg-gray-900 p-6 rounded-lg shadow hover:shadow-lg transition flex flex-col justify-between h-full min-h-[350px]"
+>
+  <div>
+    <img 
+      src={project.thumbnail} 
+      alt={project.title} 
+      loading="lazy" 
+      class="h-40 w-full object-cover rounded mb-4" 
+    />
+    <h3 class="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">
+      {project.title}
+    </h3>
+    <p 
+      class="text-sm text-gray-600 dark:text-gray-400 overflow-hidden text-ellipsis line-clamp-3"
+      style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;"
+    >
+      {project.description}
+      {project.description.length > 120 ? '... Read more' : ''}
+    </p>
+  </div>
+  <span class="mt-4 inline-block text-blue-600 dark:text-blue-400 font-medium underline">
+    View Details
+  </span>
+</a>
 
-<section class="py-16 px-4 md:px-10 bg-white dark:bg-gray-900">
-  <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-    Featured Projects
-  </h2>
 
-  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-center">
-    {highlights.featuredProjects.map((project) => (
-      <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition">
-        <img src={project.image} alt={project.title} class="w-full h-48 object-cover rounded mb-4" />
-        <h3 class="font-semibold text-lg mb-2 text-blue-600 dark:text-blue-400">{project.title}</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">{project.description}</p>
+            </div>
+          ))
+        )}
       </div>
-    ))}
+      <div class="swiper-button-prev" aria-label="Previous project"></div>
+      <div class="swiper-button-next" aria-label="Next project"></div>
+    </div>
   </div>
 
-  <div class="text-center mt-10">
-    <a href="/projects" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
-      View All Projects
+  <div class="text-center mt-4">
+    <a href="/projects" class="inline-block text-blue-700 hover:underline font-semibold">View All Projects</a>
+  </div>
+
+  <!-- Services -->
+  <p class="max-w-3xl mx-auto mt-6 text-center text-gray-700 dark:text-gray-300">
+    {highlights.services.description}
+  </p>
+  <div class="text-center mt-2">
+    <a href={highlights.services.link} class="inline-block bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition">
+      {highlights.services.buttonLabel}
+    </a>
+  </div>
+
+  <!-- Blogs -->
+  <h2 class="text-3xl font-bold text-center mt-20 mb-8 text-gray-900 dark:text-white">Latest Blogs</h2>
+  <div class="max-w-5xl mx-auto">
+    <div class="swiper blogs-swiper">
+      <div class="swiper-wrapper">
+        {blogs.length === 0 ? (
+          <div class="swiper-slide p-4">
+            <p class="w-full text-center p-10 text-gray-600 dark:text-gray-400">Blogs coming soon...</p>
+          </div>
+        ) : (
+          blogs.map(blog => (
+            <div class="swiper-slide p-4" key={blog.id}>
+              <a href={blog.url} target="_blank" rel="noopener noreferrer" class="block bg-white dark:bg-gray-900 p-6 rounded-lg shadow hover:shadow-lg transition flex flex-col h-full">
+                <img src={blog.cover_image || '/images/blogs/default.png'} alt={blog.title} loading="lazy" class="h-40 object-cover rounded mb-4" />
+                <h3 class="text-lg font-semibold text-green-600 dark:text-green-400 mb-2">{blog.title}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 flex-grow">{blog.description || blog.readable_publish_date}</p>
+                <span class="mt-4 inline-block text-green-600 dark:text-green-400 font-medium underline">Read More</span>
+              </a>
+            </div>
+          ))
+        )}
+      </div>
+      <div class="swiper-button-prev" aria-label="Previous blog"></div>
+      <div class="swiper-button-next" aria-label="Next blog"></div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="/blog" class="inline-block text-green-700 hover:underline font-semibold">View All Blogs</a>
+  </div>
+
+  <!-- About -->
+  <p class="max-w-3xl mx-auto mt-6 text-center text-gray-700 dark:text-gray-300">
+    {highlights.about.description}
+  </p>
+  <div class="text-center mt-2">
+    <a href={highlights.about.link} class="inline-block bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition">
+      {highlights.about.buttonLabel}
     </a>
   </div>
 </section>
 
-<section class="py-16 px-4 md:px-10 bg-gray-50 dark:bg-gray-800">
-  <div class="grid gap-6 md:grid-cols-4 text-center">
-    {highlights.quickActions.map((action) => (
-      <div class="p-6 bg-white dark:bg-gray-900 rounded-lg shadow hover:shadow-lg transition">
-        <h3 class={`font-semibold text-xl mb-3 text-${action.color}-600 dark:text-${action.color}-400`}>{action.title}</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">{action.description}</p>
-        <a href={action.link} class={`inline-block bg-${action.color}-600 text-white px-5 py-2 rounded-lg shadow hover:bg-${action.color}-700 transition`}>
-          {action.buttonLabel}
-        </a>
-      </div>
-    ))}
-  </div>
-</section>
+<!-- single inline client script — uses CDN so nothing to install -->
+<script type="module" client:load>
+  (function () {
+    const cssHref = 'https://unpkg.com/swiper@9/swiper-bundle.min.css';
+    if (!document.querySelector(`link[href="${cssHref}"]`)) {
+      const l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = cssHref;
+      document.head.appendChild(l);
+    }
+
+    const scriptSrc = 'https://unpkg.com/swiper@9/swiper-bundle.min.js';
+
+    function startInit() {
+      if (!window.Swiper) {
+        setTimeout(startInit, 150);
+        return;
+      }
+
+      function prepareSlides(selector, minSlides = 2) {
+        const el = document.querySelector(selector);
+        if (!el) return;
+        const wrapper = el.querySelector('.swiper-wrapper');
+        let slides = wrapper.querySelectorAll('.swiper-slide');
+        if (slides.length > 0 && slides.length < minSlides) {
+          // duplicate slides to meet minimum for slider
+          const clonesNeeded = minSlides - slides.length;
+          for (let i = 0; i < clonesNeeded; i++) {
+            wrapper.appendChild(slides[i % slides.length].cloneNode(true));
+          }
+          slides = wrapper.querySelectorAll('.swiper-slide');
+        }
+      }
+
+      // prepare: blogs at least 2 slides
+      prepareSlides('.blogs-swiper', 2);
+
+      function createIfSlides(selector, opts) {
+        const el = document.querySelector(selector);
+        if (!el) return;
+        const slides = el.querySelectorAll('.swiper-slide');
+        if (!slides.length) return;
+
+        const nextBtn = el.querySelector('.swiper-button-next');
+        const prevBtn = el.querySelector('.swiper-button-prev');
+
+new window.Swiper(el, {
+  slidesPerView: opts.slidesPerView || 1,
+  spaceBetween: opts.spaceBetween || 20,
+  loop: true,
+  loopFillGroupWithBlank: true, // ensures infinite navigation
+  autoplay: { delay: 2500, disableOnInteraction: false },
+  speed: 800, // visible slide movement
+  navigation: {
+    nextEl: nextBtn,
+    prevEl: prevBtn,
+  },
+  breakpoints: opts.breakpoints || {}
+});
+
+      }
+
+      // projects: 3 per view on desktop
+      createIfSlides('.projects-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        breakpoints: {
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }
+      });
+
+      // blogs: always 1 per view
+      createIfSlides('.blogs-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20
+      });
+    }
+
+    if (!document.querySelector(`script[src="${scriptSrc}"]`)) {
+      const s = document.createElement('script');
+      s.src = scriptSrc;
+      s.async = true;
+      s.onload = startInit;
+      document.head.appendChild(s);
+    } else {
+      startInit();
+    }
+  })();
+</script>

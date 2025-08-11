@@ -1,0 +1,52 @@
+---
+import { Swiper, SwiperSlide } from 'swiper/astro';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/autoplay';
+
+import projects from "../data/projects.json";
+import highlights from "../data/highlights.json";
+
+const maxVisible = 5;
+const displayedProjects = projects.slice(0, maxVisible);
+---
+
+<section class="py-16 px-4 md:px-10 bg-white dark:bg-gray-900 max-w-7xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+    Featured Projects
+  </h2>
+
+  <Swiper
+    spaceBetween={20}
+    slidesPerView={1}
+    navigation={true}
+    autoplay={{ delay: 3000 }}
+    breakpoints={{
+      640: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    }}
+    class="max-w-5xl mx-auto"
+  >
+    {displayedProjects.map((project) => (
+      <SwiperSlide>
+        <a
+          href={project.demoLink || project.sourceLink || '#'}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block bg-white dark:bg-gray-900 p-6 rounded-lg shadow hover:shadow-lg transition"
+        >
+          <img
+            src={project.thumbnail}
+            alt={project.title}
+            loading="lazy"
+            class="h-40 object-cover rounded mb-4"
+          />
+          <h3 class="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">
+            {project.title}
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">{project.description}</p>
+        </a>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</section>
