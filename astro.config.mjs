@@ -6,7 +6,7 @@ import tailwind from '@astrojs/tailwind'; // ✅ correct import
 
 // https://astro.build/config
 export default defineConfig({
-  // ✅ correct usage
+  site: 'https://www.askdevpk.me',
   integrations: [tailwind()],
   devOptions: {
     toolbar: false  // Disables Astro's built-in dev toolbar
