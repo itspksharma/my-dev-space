@@ -1,0 +1,70 @@
+---
+import capabilities from "../data/capabilities.json";
+---
+
+<section class="bg-black/60 backdrop-blur-sm">
+
+  <div class="max-w-6xl mx-auto">
+
+    <h2 class="text-4xl font-bold text-center mb-16">
+      What I Build & Optimize
+    </h2>
+
+    <div class="space-y-24">
+
+      {capabilities.map((item, index) => (
+        <div class={`flex flex-col md:flex-row items-center gap-12 ${
+          index % 2 !== 0 ? "md:flex-row-reverse" : ""
+        }`}>
+
+          <!-- Text Side -->
+          <div class="flex-1 space-y-4">
+            <h3 class="text-2xl font-semibold text-indigo-400">
+              {item.title}
+            </h3>
+
+            <p class="text-gray-400">
+              {item.description}
+            </p>
+
+            <ul class="space-y-2 text-gray-400 text-sm">
+              {item.points.map(point => (
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Visual Side -->
+          <div class="flex-1 flex justify-center">
+            <div class="w-48 h-48 rounded-2xl border border-white/10 
+                        bg-gradient-to-br from-indigo-500/10 to-purple-500/10 
+                        backdrop-blur-xl flex items-center justify-center
+                        shadow-xl shadow-indigo-500/10 hover:scale-105 transition duration-500">
+
+              {item.icon === "code" && (
+                <span class="text-5xl">💻</span>
+              )}
+              {item.icon === "server" && (
+                <span class="text-5xl">🖥️</span>
+              )}
+              {item.icon === "cloud" && (
+                <span class="text-5xl">☁️</span>
+              )}
+              {item.icon === "chart" && (
+                <span class="text-5xl">📊</span>
+              )}
+
+            </div>
+          </div>
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+
+</section>

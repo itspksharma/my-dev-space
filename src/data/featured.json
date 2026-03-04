@@ -1,0 +1,11 @@
+{
+  "title": "Docker Multi-Environment Architecture",
+  "subtitle": "Scalable Development Environment System",
+  "description": "A modular Docker-based multi-stack environment designed to simplify development workflows across PHP, Node.js and Python ecosystems.",
+  "problem": "Managing multiple development stacks locally often leads to dependency conflicts and inconsistent environments.",
+  "solution": "A structured container-based architecture that isolates environments while maintaining consistent configuration.",
+  "scalability": "The system allows quick environment replication, easy onboarding, and production-aligned configuration for future scaling.",
+  "tech": ["Docker", "Linux", "Node.js", "PHP", "Python"],
+  "image": "/docker-setup.png",
+  "link": "https://github.com/itspksharma/itspksharma-docker-multi-env"
+}

@@ -1,0 +1,13 @@
+{
+  "label": "Let's Build Something Meaningful",
+  "title": "Have an idea, product, or data challenge?",
+  "description": "I help startups, businesses, and individuals build scalable web systems and data-driven solutions using modern full-stack architecture.",
+  "primaryButton": {
+    "text": "Start a Project",
+    "link": "/contact"
+  },
+  "secondaryButton": {
+    "text": "View Projects",
+    "link": "/projects"
+  }
+}

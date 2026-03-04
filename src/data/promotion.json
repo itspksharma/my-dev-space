@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "delaySeconds": 3,
+  "cooldownMinutes": 5,
+
+  "title": "🚀 Level Up Your Development",
+  "description": "Explore my recommended full-stack learning resources.",
+  "buttonText": "Explore",
+  "link": "https://example.com"
+}

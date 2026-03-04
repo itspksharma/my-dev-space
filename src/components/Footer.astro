@@ -1,22 +1,57 @@
 ---
 // by Pawan Kumar Sharma
-import ThemeToggle from "./ThemeToggle.astro";
+const startYear = 2025;
 const currentYear = new Date().getFullYear();
+const displayYear =
+  startYear === currentYear
+    ? currentYear
+    : `${startYear}–${currentYear}`;
 ---
 
-<footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm py-6">
-  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-    
-    <p class="text-center md:text-left">
-      &copy; {currentYear} Pawan Kumar Sharma. All rights reserved.
-    </p>
+<footer class="mt-20 bg-[#0a0a0f] border-t border-white/5 text-gray-400">
 
-    <div class="flex items-center space-x-4">
-      <a href="https://github.com/itspksharma" class="hover:text-indigo-500" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/itspksharma98/" class="hover:text-indigo-500" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <div class="max-w-7xl mx-auto px-6 py-10">
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+      <!-- Left -->
+      <div class="text-center md:text-left">
+        <p class="text-sm">
+          © {displayYear}
+          <span class="text-white font-medium"> Pawan Kumar Sharma</span>.
+          All rights reserved.
+        </p>
+
+        <p class="text-xs text-gray-500 mt-2">
+          Full Stack MERN Developer & DevOps Enthusiast — Rourkela, Odisha, India
+        </p>
+      </div>
+
+      <!-- Right -->
+      <div class="flex gap-6 text-sm font-medium">
+
+        <a
+          href="https://github.com/itspksharma"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-indigo-400 transition duration-300"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/itspksharma98/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-indigo-400 transition duration-300"
+        >
+          LinkedIn
+        </a>
+
+      </div>
 
     </div>
-    
 
   </div>
+
 </footer>

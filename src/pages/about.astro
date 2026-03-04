@@ -1,36 +1,149 @@
 ---
 // by Pawan Kumar Sharma
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Seo from "../components/Seo.astro";
 import aboutData from "../data/about.json";
 ---
 
-<BaseLayout title={`About AskDevPK | Pawan Kumar Sharma`} description="Learn about Pawan Kumar Sharma (AskDevPK): a Full-Stack Developer skilled in MERN stack, his work style, and technical expertise.">
-  <Seo title="About AskDevPK | Pawan Kumar Sharma" description="Learn about Pawan Kumar Sharma (AskDevPK): a Full-Stack Developer skilled in MERN stack, his work style, and technical expertise." />
-  
-  <section class="max-w-5xl mx-auto px-4 py-16 text-gray-800 dark:text-gray-100">
-    
-    <!-- Intro -->
-    <h1 class="text-4xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">{aboutData.title}</h1>
-    <p class="text-lg leading-relaxed mb-12">
-      {aboutData.intro}
+<BaseLayout
+  type="website"
+  title="About | Pawan Kumar Sharma | AskDevPK"
+  description="Professional overview of Pawan Kumar Sharma — Full Stack MERN Developer focused on scalable systems and DevOps foundations."
+  url="https://askdevpk.me/about"
+>
+
+<section class="max-w-5xl mx-auto px-6 py-24 space-y-28">
+
+  <!-- Identity -->
+  <div class="text-center space-y-8 ">
+
+    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight
+      bg-gradient-to-r from-white via-indigo-300 to-indigo-500
+      bg-clip-text text-transparent">
+      {aboutData.title}
+    </h1>
+
+    <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+      {aboutData.identity}
     </p>
 
-    <!-- Skills -->
-    <h2 class="text-2xl font-semibold mt-12 mb-6 text-gray-900 dark:text-white">Skills & Tools</h2>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {aboutData.skills.map(skill => (
-        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow">
-          <h3 class="font-semibold mb-3">{skill.title}</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">{skill.items}</p>
+    <p class="text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto">
+      {aboutData.positioning}
+    </p>
+
+  </div>
+
+  <!-- Divider -->
+  <div class="h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent"></div>
+
+  <!-- Philosophy -->
+  <div class="text-center space-y-8 reveal">
+
+    <h2 class="text-3xl font-bold text-white">
+      {aboutData.philosophyTitle}
+    </h2>
+
+    <p class="text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto">
+      {aboutData.philosophyText}
+    </p>
+
+  </div>
+
+  <!-- Divider -->
+  <div class="h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent"></div>
+
+  <!-- Evolution (Clean Vertical Layout) -->
+  <div class="space-y-16 reveal">
+
+    <h2 class="text-3xl font-bold text-center text-white">
+      {aboutData.evolutionTitle}
+    </h2>
+
+    <div class="space-y-12">
+
+      {aboutData.evolution.map((item, index) => (
+        <div class="relative pl-10">
+
+          <div class="absolute left-0 top-2 w-3 h-3 bg-indigo-500 rounded-full"></div>
+
+          <h3 class="text-indigo-400 font-semibold text-lg mb-2">
+            {item.phase}
+          </h3>
+
+          <p class="text-gray-400 text-sm leading-relaxed">
+            {item.text}
+          </p>
+
         </div>
       ))}
+
     </div>
 
-    <!-- Personal touch -->
-    <h2 class="text-2xl font-semibold mt-12 mb-6 text-gray-900 dark:text-white">{aboutData.beyondCodingTitle}</h2>
-    <p class="text-lg leading-relaxed">
-      {aboutData.beyondCodingText}
+  </div>
+
+  <!-- Divider -->
+  <div class="h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent"></div>
+
+  <!-- Direction -->
+  <div class="text-center space-y-8 reveal">
+
+    <h2 class="text-3xl font-bold text-white">
+      {aboutData.directionTitle}
+    </h2>
+
+    <p class="text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto">
+      {aboutData.directionText}
     </p>
-  </section>
+
+  </div>
+
+  <!-- Divider -->
+  <div class="h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent"></div>
+
+  <!-- Personal -->
+  <div class="text-center space-y-8 reveal">
+
+    <h2 class="text-3xl font-bold text-white">
+      {aboutData.personalTitle}
+    </h2>
+
+    <p class="text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto">
+      {aboutData.personalText}
+    </p>
+
+  </div>
+
+</section>
+
+<style>
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const reveals = document.querySelectorAll(".reveal");
+
+  function revealOnScroll() {
+    reveals.forEach((el) => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+
+      if (elementTop < windowHeight - 100) {
+        el.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+});
+</script>
+
 </BaseLayout>

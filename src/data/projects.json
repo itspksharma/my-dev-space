@@ -1,37 +1,47 @@
 [
   {
-    "title": "Just-Download (Product website)",
-    "description": "Cross-platform video downloader with support for desktop, mobile, and Chrome extension.",
+    "slug": "just-download",
+    "title": "Just-Download (Product Platform)",
+    "description": "Cross-platform video downloader platform with desktop, mobile, and Chrome extension support.",
     "thumbnail": "/just-download-website.png",
     "sourceLink": "https://github.com/itspksharma/just-download-website",
-    "demoLink": "https://justdownload.askdevpk.me/"
+    "demoLink": "https://justdownload.askdevpk.me/",
+    "category": "Product Platform",
+    "stack": ["React", "Node.js", "API Integration"],
+    "featured": true,
+    "studentReady": false,
+    "problem": "Users needed a simple way to download media across platforms without switching tools.",
+    "architecture": "Frontend → API Layer → Processing Engine → Delivery",
+    "impact": "Improved usability and cross-platform accessibility."
   },
   {
+    "slug": "docker-multi-env",
     "title": "Docker Multi-Environment Setup",
-    "description": "Organized Docker setup for various stacks (PHP, Node, Python, etc.) for local development without installing dependencies.",
+    "description": "Organized Docker setup for multiple stacks for isolated development.",
     "thumbnail": "/docker-setup.png",
     "sourceLink": "https://github.com/itspksharma/itspksharma-docker-multi-env",
-    "demoLink": ""
+    "demoLink": "",
+    "category": "DevOps / Infrastructure",
+    "stack": ["Docker", "Linux", "Environment Setup"],
+    "featured": false,
+    "studentReady": true,
+    "problem": "Managing multiple stacks locally without dependency conflicts.",
+    "architecture": "Docker Compose → Containerized Services → Volume Mapping",
+    "impact": "Clean development workflow and zero system conflicts."
   },
   {
+    "slug": "mood-tab",
     "title": "Mood-Tab (Chrome Extension)",
-    "description": "A clean, animated and motivational Chrome new tab extension that plays background videos based on your selected mood: Sad, Moody, or Love.",
+    "description": "Animated motivational Chrome extension with mood-based background themes.",
     "thumbnail": "/mood-tab.png",
-    "sourceLink": "https://github.com/itspksharma/chrome-mood-tab-extension", 
-    "demoLink": ""
-  },
-  {
-    "title": "My Portfolio",
-    "description": "This is my fully responsive, animated, and dynamic personal portfolio website built with HTML, CSS, and JavaScript",
-    "thumbnail": "profile-portfolio.png",
-    "sourceLink": "https://github.com/itspksharma/my-portfolio",
-    "demoLink": "https://profile.askdevpk.me/"
-  },
-  {
-    "title": "Grih Chhaya (A Rental App)",
-    "description": "A culturally-inspired house rental app that offers short stays with a homely Indian touch. ",
-    "thumbnail": "Grih-Chhaya.png",
-    "sourceLink": "https://github.com/itspksharma/grih-chhaya_a_rental_app",
-    "demoLink": ""
+    "sourceLink": "https://github.com/itspksharma/chrome-mood-tab-extension",
+    "demoLink": "",
+    "category": "Browser Extension",
+    "stack": ["JavaScript", "Chrome API", "UI Animation"],
+    "featured": false,
+    "studentReady": true,
+    "problem": "New tab pages lacked personalization and emotional engagement.",
+    "architecture": "Chrome API → Local Storage → UI Theme Engine",
+    "impact": "Enhanced user engagement with mood-based experience."
   }
 ]

@@ -1,0 +1,264 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import readingTime from "reading-time";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts
+    .filter(post => !post.data.draft)
+    .map((post) => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+
+const { Content, headings } = await post.render();
+
+const stats = readingTime(post.body);
+
+const allPosts = (await getCollection("blog"))
+  .filter(p => !p.data.draft && p.slug !== post.slug)
+  .slice(0,3);
+---
+
+<BaseLayout
+  title={`${post.data.title} | AskDevPK`}
+  description={post.data.description}
+>
+
+<div id="reading-progress" class="fixed top-0 left-0 h-1 bg-indigo-500 z-50" style="width:0%"></div>
+
+<section class="max-w-5xl mx-auto px-6 py-24 grid lg:grid-cols-[1fr_250px] gap-16">
+
+<div>
+
+<h1 class="text-4xl font-bold text-white mb-4">
+{post.data.title}
+</h1>
+
+<div class="text-gray-400 text-sm mb-6 flex gap-4 flex-wrap">
+
+<span>
+{post.data.pubDate.toLocaleDateString("en-US", {
+year: "numeric",
+month: "long",
+day: "numeric"
+})}
+</span>
+
+<span>•</span>
+<span>{stats.text}</span>
+<span>•</span>
+<span>{post.data.author}</span>
+
+</div>
+
+{post.data.tags && (
+<div class="flex flex-wrap gap-2 mb-10">
+{post.data.tags.map(tag => (
+<span class="text-xs bg-white/5 text-indigo-400 px-3 py-1 rounded-full">
+#{tag}
+</span>
+))}
+</div>
+)}
+
+{post.data.image && (
+<img src={post.data.image} class="rounded-xl mb-10 w-full" loading="lazy"/>
+)}
+
+<article class="prose prose-invert prose-indigo max-w-none">
+<Content />
+</article>
+
+<!-- SHARE -->
+
+<div class="mt-16 border-t border-white/10 pt-8">
+
+<h3 class="text-lg font-semibold text-white mb-4">
+Share this article
+</h3>
+
+<div class="flex gap-4">
+
+<a
+href={`https://twitter.com/intent/tweet?url=${Astro.url}`}
+target="_blank"
+class="text-sm bg-black hover:bg-gray-800 px-4 py-2 rounded text-white transition"
+>
+Share on X
+</a>
+
+<a
+href={`https://www.linkedin.com/sharing/share-offsite/?url=${Astro.url}`}
+target="_blank"
+class="text-sm bg-[#0A66C2] hover:bg-blue-700 px-4 py-2 rounded text-white transition"
+>
+Share on LinkedIn
+</a>
+
+<button
+id="copy-link"
+class="text-sm bg-gray-700 px-4 py-2 rounded text-white transition"
+>
+Copy Link
+</button>
+
+</div>
+
+</div>
+
+<!-- RELATED -->
+
+{allPosts.length > 0 && (
+<div class="mt-20">
+
+<h3 class="text-2xl font-semibold text-white mb-8">
+Related Articles
+</h3>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+{allPosts.map(p => (
+
+<a
+href={`/blog/${p.slug}`}
+class="block bg-[#0f172a] border border-white/5 rounded-xl p-6 hover:border-indigo-500/40 transition"
+>
+
+<h4 class="text-white font-semibold">
+{p.data.title}
+</h4>
+
+<p class="text-gray-400 text-sm mt-2">
+{p.data.description}
+</p>
+
+</a>
+
+))}
+
+</div>
+
+</div>
+)}
+
+</div>
+
+<!-- TOC -->
+
+{headings.length > 0 && (
+<aside class="hidden lg:block sticky top-32 h-fit">
+
+<h3 class="text-white font-semibold mb-4">
+Contents
+</h3>
+
+<ul class="space-y-2 text-sm text-gray-400">
+
+{headings.map((heading) => (
+
+<li class={`ml-${(heading.depth - 2) * 4}`}>
+<a href={`#${heading.slug}`} class="hover:text-indigo-400 transition">
+{heading.text}
+</a>
+</li>
+
+))}
+
+</ul>
+
+</aside>
+)}
+
+</section>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+/* PROGRESS BAR */
+
+const progressBar = document.getElementById("reading-progress");
+
+window.addEventListener("scroll", () => {
+
+const scrollTop = window.scrollY;
+const height = document.body.scrollHeight - window.innerHeight;
+const progress = (scrollTop / height) * 100;
+
+progressBar.style.width = progress + "%";
+
+});
+
+
+/* COPY LINK BUTTON */
+
+const copyLink = document.getElementById("copy-link");
+
+if(copyLink){
+
+copyLink.addEventListener("click", () => {
+
+navigator.clipboard.writeText(window.location.href);
+
+copyLink.innerText = "Copied ✓";
+copyLink.classList.add("bg-green-600");
+
+setTimeout(() => {
+
+copyLink.innerText = "Copy Link";
+copyLink.classList.remove("bg-green-600");
+
+},2000);
+
+});
+
+}
+
+
+/* COPY CODE BLOCK */
+
+document.querySelectorAll("pre").forEach((block) => {
+
+const wrapper = document.createElement("div");
+wrapper.className = "relative";
+
+block.parentNode.insertBefore(wrapper, block);
+wrapper.appendChild(block);
+
+const button = document.createElement("button");
+
+button.innerText = "Copy";
+button.className =
+"absolute top-2 right-2 text-xs bg-gray-800 text-white px-2 py-1 rounded transition";
+
+wrapper.appendChild(button);
+
+button.addEventListener("click", () => {
+
+navigator.clipboard.writeText(block.innerText);
+
+button.innerText = "Copied ✓";
+button.classList.add("bg-green-600");
+
+setTimeout(() => {
+
+button.innerText = "Copy";
+button.classList.remove("bg-green-600");
+
+},2000);
+
+});
+
+});
+
+});
+
+</script>
+
+</BaseLayout>

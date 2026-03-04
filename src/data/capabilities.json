@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Scalable Web Applications",
+    "description": "Modern MERN stack applications built for performance, modularity and long-term growth.",
+    "points": [
+      "React + Node architecture",
+      "Authentication & role systems",
+      "Performance optimized builds"
+    ],
+    "icon": "code"
+  },
+  {
+    "title": "Backend & API Systems",
+    "description": "Structured backend services designed for reliability and scalability.",
+    "points": [
+      "REST API design",
+      "Database modeling",
+      "Secure authentication"
+    ],
+    "icon": "server"
+  },
+  {
+    "title": "DevOps & Deployment",
+    "description": "Containerized environments and production-ready deployments.",
+    "points": [
+      "Docker environments",
+      "Linux server setup",
+      "CI/CD mindset"
+    ],
+    "icon": "cloud"
+  },
+  {
+    "title": "Data Dashboards & Insights",
+    "description": "Data-driven dashboards that transform raw data into business insights.",
+    "points": [
+      "Excel automation",
+      "Power BI dashboards",
+      "Data visualization strategy"
+    ],
+    "icon": "chart"
+  }
+]

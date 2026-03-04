@@ -1,58 +1,67 @@
 {
   "pageTitle": "Services",
-  "pageDescription": "I offer high-quality, performance-focused digital solutions that help you grow your business and reach more people.",
-  "services": [
-    {
-      "icon": "M3 4a1 1 0 011-1h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z",
-      "title": "Web Development",
-      "description": "Fast, SEO-optimized websites using React, Astro, and Tailwind CSS — designed to load under 1 second and rank higher on search engines."
-    },
-    {
-      "icon": "M12 4v16m8-8H4",
-      "title": "Mobile App Development",
-      "description": "Custom Android apps with React Native CLI or Java — lightweight, responsive, and integrated with APIs for real-world use."
-    },
-    {
-      "icon": "M4 8h16M4 16h16",
-      "title": "API Development & Integration",
-      "description": "Scalable REST APIs using Flask, Node.js, or Express — secure, fast, and capable of handling thousands of requests per minute."
-    },
-    {
-      "icon": "M14 10h4v4h-4m-4-4H6v4h4m4-12h-4v4h4m0 8h-4v4h4",
-      "title": "Website Optimization & SEO",
-      "description": "Improve website speed, accessibility, and SEO rankings to ensure better visibility and higher conversions."
-    },
-    {
-      "icon": "M12 8v8m-4-4h8",
-      "title": "Maintenance & Support",
-      "description": "Ongoing updates, security patches, bug fixes, and new feature implementations for your website or app."
-    }
-  ],
+  "pageDescription": "I build structured, scalable, and performance-focused digital systems — from application architecture to deployment-ready environments.",
+
+"services": [
+  {
+    "icon": "code",
+    "title": "Scalable Web Platforms",
+    "description": "Custom web applications built using modern stacks like MERN and Astro — architected for clean backend logic, structured database design, and long-term maintainability."
+  },
+  {
+    "icon": "server",
+    "title": "Backend Systems & API Architecture",
+    "description": "Secure REST APIs, authentication systems, and database-driven backends designed with scalability and production-readiness in mind."
+  },
+  {
+    "icon": "cloud",
+    "title": "Deployment & DevOps Setup",
+    "description": "Containerized setup using Docker, Nginx configuration, and structured deployment workflows for smooth production releases."
+  },
+  {
+    "icon": "speed",
+    "title": "Performance & Optimization",
+    "description": "Speed optimization, SEO improvements, and infrastructure tuning to ensure fast loading times and stable performance."
+  },
+  {
+    "icon": "data",
+    "title": "Automation & Data Dashboards",
+    "description": "Python-based automation workflows, structured data extraction from Excel/MySQL, and Power BI dashboards for actionable insights."
+  }
+],
+
+  "academicSupport": {
+    "title": "Academic & Learning Project Support",
+    "description": "Guidance and implementation support for students working on academic or final-year projects in web development, dashboards, automation systems, or full-stack applications. Projects are delivered with proper structure, documentation, and deployment guidance.",
+    "primaryButton": "Request Project Support",
+    "secondaryButton": "View Sample Projects"
+  },
+
   "workflow": [
     {
-      "step": "1",
-      "title": "Plan",
-      "description": "Understanding your requirements, setting clear goals, and defining the project scope."
+      "step": "01",
+      "title": "Requirement Clarity",
+      "description": "Understanding business goals, technical constraints, and scalability requirements."
     },
     {
-      "step": "2",
-      "title": "Design",
-      "description": "Crafting modern, user-friendly, and responsive UI/UX layouts for all devices."
+      "step": "02",
+      "title": "System Design",
+      "description": "Designing application architecture, API flow, database schema, and deployment structure."
     },
     {
-      "step": "3",
-      "title": "Build",
-      "description": "Developing fast, secure, and scalable applications using the latest technologies."
+      "step": "03",
+      "title": "Development & Integration",
+      "description": "Implementing frontend, backend, and infrastructure components with clean, modular code."
     },
     {
-      "step": "4",
-      "title": "Launch",
-      "description": "Deploying the project to production with zero downtime and full monitoring."
+      "step": "04",
+      "title": "Deployment & Testing",
+      "description": "Production deployment with performance checks and environment configuration."
     },
     {
-      "step": "5",
-      "title": "Support",
-      "description": "Providing continuous improvements, updates, and technical assistance."
+      "step": "05",
+      "title": "Optimization & Support",
+      "description": "Ongoing improvements, automation enhancements, and feature scalability."
     }
   ]
 }

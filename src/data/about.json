@@ -1,20 +1,36 @@
 {
-  "title": "About Me",
-  "intro": "I build clean, fast, and user-friendly digital experiences — from modern websites to functional web apps. I enjoy turning ideas into reality, whether it’s for a personal project or a client’s vision. My approach is simple: write clean code, focus on performance, and create designs that people love to use.",
-  "skills": [
+  "title": "About",
+
+  "identity": "I am Pawan Kumar Sharma — a Full Stack MERN Developer currently focused on strengthening core engineering foundations and building scalable, deployment-ready systems.",
+
+  "positioning": "My current growth phase is centered around mastering JavaScript and the MERN stack at a deep architectural level, followed by expanding into Linux systems, networking fundamentals, and modern DevOps workflows.",
+
+  "philosophyTitle": "Engineering Direction",
+  "philosophyText": "I believe strong software is built on layered understanding — from frontend logic to backend systems, infrastructure, automation, and data awareness. My goal is to build systems that are not only functional, but scalable, observable, and automation-ready.",
+
+  "evolutionTitle": "Structured Growth Path",
+  "evolution": [
     {
-      "title": "Frontend",
-      "items": "HTML, CSS, JavaScript, React, Astro, Tailwind CSS"
+      "phase": "Core Application Mastery",
+      "text": "Deep practice in JavaScript and MERN stack architecture — focusing on clean APIs, authentication systems, and scalable backend logic."
     },
     {
-      "title": "Backend",
-      "items": "Node.js, Express, Python, .NET, PHP, REST APIs, MongoDB, MySQL"
+      "phase": "Infrastructure Foundations",
+      "text": "Building strong Linux and networking fundamentals to understand how applications behave in real-world server environments."
     },
     {
-      "title": "Tools & Hosting",
-      "items": "Git, GitHub, VS Code, Figma, Cloudflare, Netlify"
+      "phase": "DevOps & Deployment",
+      "text": "Learning Docker, Nginx, and Kubernetes to manage containerized environments and multi-stage deployments."
+    },
+    {
+      "phase": "Automation & Data Systems",
+      "text": "Using Python for automation tasks, data extraction from Excel and MySQL, and building analytical dashboards with Power BI."
     }
   ],
-  "beyondCodingTitle": "Beyond Coding",
-  "beyondCodingText": "Life isn’t just about code — I love exploring new places, discovering local food spots, and going on long bike or car rides to clear my head. I enjoy meeting people with fresh perspectives, learning new skills outside tech, and sometimes just getting lost in a journey with no fixed destination. These experiences inspire my creativity and keep my mind fresh for building better solutions."
+
+  "directionTitle": "Long-Term Direction",
+  "directionText": "My long-term direction is to evolve into a systems-oriented engineer capable of designing scalable architectures, automating workflows, and working with data pipelines that support AI-driven applications.",
+
+  "personalTitle": "Beyond Technology",
+  "personalText": "Outside structured learning, I value discipline, clarity, and long-term thinking. I approach growth methodically — building foundations first, then layering advanced concepts step by step."
 }

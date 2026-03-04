@@ -1,20 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
-import Highlights from "../components/Highlights.astro";
-import Seo from "../components/Seo.astro";
+import CapabilityMatrix from "../components/CapabilityMatrix.astro";
+import FeaturedSystem from "../components/FeaturedSystem.astro";
+import TechStrip from "../components/TechStrip.astro";
+import HybridStatement from "../components/HybridStatement.astro";
+import CallToAction from "../components/CallToAction.astro";
+import FestivalLayer from "../components/FestivalLayer.astro";
+import PromotionPopup from "../components/PromotionPopup.astro";
 ---
 
-<BaseLayout>
-  <Seo 
-    title="AskDevPK - Pawan Kumar Sharma" 
-    description="Portfolio of Pawan Kumar Sharma (AskDevPK). Explore projects, services, blogs, and get in touch." 
-  />
-  
-  <div class="bg-animated-gradient min-h-screen relative z-0">
-    <main class="relative z-10">
-      <Hero />
-      <Highlights />
-    </main>
-  </div>
+<BaseLayout
+  type="website"
+  title="Pawan Kumar Sharma | Full Stack MERN Developer & DevOps Enthusiast | AskDevPK"
+  description="Personal portfolio of Pawan Kumar Sharma (AskDevPK), a Full Stack MERN Developer & DevOps Enthusiast based in Rourkela, Odisha, India."
+  url="https://askdevpk.me/"
+>
+  <section class="relative z-10">
+    <FestivalLayer />
+    <Hero />
+    <CapabilityMatrix />
+    <FeaturedSystem />
+    <TechStrip />
+    <HybridStatement />
+    <CallToAction />
+    <PromotionPopup />
+  </section>
 </BaseLayout>

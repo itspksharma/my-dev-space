@@ -2,18 +2,70 @@
 // by Pawan Kumar Sharma
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-import Seo from "../components/Seo.astro";
 
-const { title = "AskDevPK | Pawan Kumar Sharma, Full-Stack Developer", description = "Explore my full-stack developer portfolio with projects, blogs, and services.", image = "/askdevpk.png" } = Astro.props;
+const {
+  title = "Pawan Kumar Sharma | Full Stack MERN Developer & DevOps Enthusiast | AskDevPK",
+  description = "Pawan Kumar Sharma is a Full Stack MERN Developer & DevOps Enthusiast based in Rourkela, Odisha, India. Specializing in React, Node.js, MongoDB, Linux, Docker, and automation.",
+  image = "/askdevpk.png",
+  url = "https://askdevpk.me/",
+  type = "website" // future use: article, blog, project etc.
+} = Astro.props;
+
+const fullImage = `https://askdevpk.me${image}`;
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
   <head>
-    <Seo {title} {description} {image} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Pawan Kumar Sharma" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={url} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type === "article" ? "article" : "website"} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={fullImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImage} />
+
+    <!-- Structured Data: Person -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Pawan Kumar Sharma",
+        url: "https://askdevpk.me/",
+        email: "contact@askdevpk.me",
+        jobTitle: "Full Stack MERN Developer & DevOps Enthusiast",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Rourkela",
+          addressRegion: "Odisha",
+          addressCountry: "India"
+        },
+        sameAs: [
+          "https://github.com/itspksharma",
+          "https://www.linkedin.com/in/itspksharma98/"
+        ]
+      })}
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-white text-gray-900 dark:bg-black dark:text-white transition-colors duration-300">
+
+  <body class="bg-[#0a0a0f] text-gray-200 antialiased">
     <Navbar />
-    
+
     <main class="min-h-screen">
       <slot />
     </main>

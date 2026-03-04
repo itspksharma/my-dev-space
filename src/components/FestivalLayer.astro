@@ -1,0 +1,243 @@
+---
+import festivalData from "../data/festivals.json";
+
+const { manualOverride, festivals, narrator } = festivalData;
+
+let activeFestival = null;
+
+if (manualOverride && festivals[manualOverride]) {
+  activeFestival = festivals[manualOverride];
+}
+---
+
+{activeFestival && (
+  <div
+    id="festival-intro"
+    class="festival-intro"
+    data-key={manualOverride}
+    data-quote={activeFestival.quote}
+  >
+    <canvas id="festival-canvas"></canvas>
+
+    <div class="festival-content">
+      <h1>{activeFestival.name}</h1>
+      <p id="festival-quote"></p>
+      <span class="narrator">{narrator}</span>
+    </div>
+  </div>
+)}
+
+<style>
+.festival-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  animation: introFade 0.8s ease forwards;
+}
+
+@keyframes introFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#festival-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.festival-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: zoomIn 0.8s ease forwards;
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* ===== Festival Typography Upgrade ===== */
+
+
+.festival-content h1 {
+  font-family: inherit; /* same as hero */
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.festival-content p {
+  font-family: inherit;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 500;
+  max-width: 720px;
+  min-height: 70px;
+  line-height: 1.7;
+  color: #e5e7eb;
+  letter-spacing: 0.3px;
+}
+
+.narrator {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+@keyframes defaultShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var intro = document.getElementById("festival-intro");
+  if (!intro) return;
+
+  var canvas = document.getElementById("festival-canvas");
+  if (!canvas) return;
+
+  var ctx = canvas.getContext("2d");
+
+  var key = intro.getAttribute("data-key");
+  var heading = intro.querySelector("h1");
+
+if (key === "holi") {
+  heading.style.background =
+    "linear-gradient(135deg, #ff4da6 0%, #ffd11a 40%, #33ccff 80%)";
+}
+
+else if (key === "diwali") {
+  heading.style.background =
+    "linear-gradient(135deg, #ffd700 0%, #ffae00 60%)";
+}
+
+else if (key === "republic_day" || key === "independence_day") {
+  heading.style.background =
+    "linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%)";
+}
+
+else if (key === "rath_yatra") {
+  heading.style.background =
+    "linear-gradient(135deg, #ff7a00 0%, #ffcc70 100%)";
+}
+
+else {
+  heading.style.background =
+    "linear-gradient(135deg, #ff512f 0%, #dd2476 40%, #ff9966 100%)";
+}
+
+heading.style.backgroundSize = "200% auto";
+heading.style.webkitBackgroundClip = "text";
+heading.style.webkitTextFillColor = "transparent";
+heading.style.animation = "festivalShift 5s ease-in-out infinite";
+
+
+  var quoteText = intro.getAttribute("data-quote") || "";
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  var particles = [];
+
+  function createParticles() {
+
+    var colors = [];
+
+    if (key === "holi") {
+      colors = ["#ff4da6", "#ffd11a", "#33ccff", "#66ff66"];
+    } 
+    else if (key === "diwali") {
+      colors = ["#ffd700", "#ffae00", "#ffffff"];
+    } 
+    else if (key === "republic_day" || key === "independence_day") {
+      colors = ["#ff9933", "#ffffff", "#138808"];
+    } 
+    else {
+      colors = ["#8888ff"];
+    }
+
+    for (var i = 0; i < 150; i++) {
+      particles.push({
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        radius: Math.random() * 3 + 1,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        speedX: (Math.random() - 0.5) * 8,
+        speedY: (Math.random() - 0.5) * 8,
+        life: 100
+      });
+    }
+  }
+
+  function animate() {
+
+    ctx.fillStyle = "rgba(10,10,20,0.15)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = 0; i < particles.length; i++) {
+
+      var p = particles[i];
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.life--;
+
+      if (p.life <= 0) {
+        particles.splice(i, 1);
+        i--;
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  createParticles();
+  animate();
+
+  // ===== Typing Effect =====
+
+  var quoteEl = document.getElementById("festival-quote");
+  var index = 0;
+
+  function typeWriter() {
+    if (index < quoteText.length) {
+      quoteEl.innerHTML += quoteText.charAt(index);
+      index++;
+      setTimeout(typeWriter, 25);
+    }
+  }
+
+  typeWriter();
+
+  // ===== Auto Close (4s as per your setting) =====
+
+  setTimeout(function () {
+    intro.style.transition = "opacity 0.8s ease";
+    intro.style.opacity = "0";
+    setTimeout(function () {
+      intro.remove();
+    }, 800);
+  }, 4000);
+
+});
+</script>

@@ -1,0 +1,98 @@
+{
+  "manualOverride": "holi",
+  
+  "narrator": "— Pawan Kumar Sharma",
+
+  "festivals": {
+
+    "new_year": {
+      "name": "This New Year",
+      "quote": "Wishing you a year filled with clarity, growth, and powerful new beginnings."
+
+    },
+
+    "republic_day": {
+      "name": "This Republic Day",
+      "quote": "Wishing you pride, unity, and strength as we celebrate our Constitution and nation."
+
+    },
+
+    "vasant_panchami": {
+      "name": "This Vasant Panchami (Saraswati Puja)",
+      "quote": "Wishing you wisdom, creativity, and knowledge under the blessings of Maa Saraswati."
+
+    },
+
+    "maha_shivratri": {
+      "name": "This Maha Shivratri",
+      "quote": "Wishing you strength, peace, and transformation guided by Lord Shiva."
+
+    },
+
+    "holi": {
+      "name": "This Holi",
+      "quote": "Wishing you vibrant success, meaningful relationships, and colors of positivity."
+
+    },
+
+    "ram_navami": {
+      "name": "This Shri Ram Navami",
+      "quote": "Wishing you courage, discipline, and righteousness inspired by Lord Ram."
+    },
+
+    "rath_yatra": {
+      "name": "This Shri Jagannath Rath Yatra",
+      "quote": "Wishing you divine direction, purposeful movement, and blessings from Lord Jagannath."
+
+    },
+
+    "independence_day": {
+      "name": "This Independence Day",
+      "quote": "Wishing you freedom in thought, strength in action, and pride in our nation."
+
+    },
+
+    "raksha_bandhan": {
+      "name": "This Raksha Bandhan",
+      "quote": "Wishing you enduring bonds of trust, protection, and lifelong connection."
+
+    },
+
+    "janmashtami": {
+      "name": "This Janmashtami",
+      "quote": "Wishing you wisdom, harmony, and divine joy inspired by Lord Krishna."
+
+    },
+
+    "ganesh_chaturthi": {
+      "name": "This Ganesh Chaturthi",
+      "quote": "Wishing you success, clarity, and removal of obstacles through Lord Ganesha’s blessings."
+
+    },
+
+    "vishwakarma_puja": {
+      "name": "This Vishwakarma Puja",
+      "quote": "Wishing you innovation, precision, and excellence in every creation you build."
+
+    },
+
+    "dussehra": {
+      "name": "This Dussehra",
+      "quote": "Wishing you victory over challenges and strength to uphold what is right."
+
+    },
+
+    "diwali": {
+      "name": "This Diwali",
+      "quote": "Wishing you prosperity, clarity, and illumination in every aspect of life."
+
+    },
+
+    "chhath_puja": {
+      "name": "This Chhath Puja",
+      "quote": "Wishing you health, discipline, and divine blessings from Surya Dev."
+
+    }
+
+  }
+}

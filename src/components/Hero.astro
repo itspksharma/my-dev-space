@@ -1,87 +1,96 @@
-<section class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 md:px-10 overflow-hidden">
+<section class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
 
-  <!-- ✅ Animated Background Gradient -->
-  <div class="absolute inset-0 -z-10 animate-gradient bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 opacity-30 blur-2xl"></div>
+  <!-- Background Base -->
+  <div class="absolute inset-0 -z-40 bg-[#0a0a0f]"></div>
+  
 
-  <!-- ✅ Profile Photo -->
+  <!-- Subtle Radial Glow -->
+  <div class="absolute inset-0 -z-30 bg-[radial-gradient(circle_at_50%_30%,rgba(59,130,246,0.15),transparent_60%)]"></div>
+
+  <!-- Animated Gradient Blur -->
+  <div class="absolute inset-0 -z-20 bg-gradient-to-tr from-indigo-500/10 via-purple-500/10 to-blue-500/10 animate-gradient blur-3xl"></div>
+
+  <!-- Profile -->
   <img
     src="profile.jpg"
-    alt="Pawan Sharma"
-    class="w-40 h-40 sm:w-48 sm:h-48 rounded-full shadow-lg border-4 border-white dark:border-gray-800 mb-6 transform transition duration-1000 opacity-0 translate-y-4 hover:ring-4 hover:ring-blue-400 hover:scale-105 animate-fade-in"
+    alt="Pawan Kumar Sharma - Full Stack MERN Developer"
+    class="w-36 h-36 sm:w-44 sm:h-44 rounded-full shadow-2xl border border-white/10 mb-8 hover:scale-105 transition duration-500"
     loading="lazy"
   />
 
   <!-- Heading -->
-  <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight">
-    Hi,</br> I'm <span class="text-blue-600 dark:text-blue-400">Pawan Kumar Sharma</span>
+  <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white leading-tight">
+    Building Scalable Digital Experiences
   </h1>
 
-  <!-- ✅ Looping Typewriter -->
-  <p id="typewriter" class="text-lg sm:text-xl text-blue-600 dark:text-blue-400 font-semibold mb-4 h-[1.5em]">
-    <!-- Text will be injected by JS -->
-  </p>
+  <!-- Sub Heading -->
+  <h2 class="mt-4 text-xl sm:text-2xl text-indigo-400 font-semibold">
+    Hi, I'm Pawan Kumar Sharma
+  </h2>
+
+  <!-- Typewriter -->
+  <p id="typewriter" class="mt-3 text-lg text-gray-400 h-[1.5em]"></p>
 
   <!-- Description -->
-  <p class="text-sm sm:text-md md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mb-8">
-    I build fast, clean, and modern web & mobile apps using the latest technologies.
+  <p class="mt-6 text-gray-400 max-w-2xl">
+    Full Stack MERN Developer & DevOps Enthusiast based in Rourkela(Odisha), India.
+    I specialize in React, Node.js, Docker, Linux & automation-driven systems.
   </p>
 
-  <div class="flex flex-wrap justify-center gap-4">
-    <a href="/projects" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+  <!-- CTA Buttons -->
+  <div class="mt-8 flex flex-wrap justify-center gap-4">
+    <a href="/projects"
+       class="px-6 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition shadow-lg shadow-indigo-600/30">
       View Projects
     </a>
-    <a href="/contact" class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-300">
+
+    <a href="/contact"
+       class="px-6 py-3 rounded-lg border border-white/10 text-white hover:bg-white/5 transition">
       Contact Me
     </a>
   </div>
+
 </section>
 
 <style is:global>
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  @keyframes gradientMove {
+    0% { transform: translateY(-10%) rotate(0deg); }
+    50% { transform: translateY(10%) rotate(180deg); }
+    100% { transform: translateY(-10%) rotate(360deg); }
   }
-  @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(1rem); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
+
   .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradientShift 10s ease infinite;
-  }
-  .animate-fade-in {
-    animation: fadeInUp 1.2s ease-out forwards;
+    animation: gradientMove 18s linear infinite;
   }
 </style>
 
 <script>
   const roles = [
-    "Full-stack Developer",
-    "Open Source Contributor",
-    "UI/UX Enthusiast",
-    "Problem Solver"
+    "Full Stack MERN Developer",
+    "DevOps Enthusiast",
+    "Automation Builder",
+    "Open Source Contributor"
   ];
 
   let roleIndex = 0;
   let charIndex = 0;
   let currentText = "";
   let isDeleting = false;
-  const speed = 100; // Typing speed
-  const pause = 1500; // Pause before deleting
+  const speed = 80;
+  const pause = 1500;
 
-  const typewriterElement = document.getElementById("typewriter");
+  const el = document.getElementById("typewriter");
 
   function typeLoop() {
     const role = roles[roleIndex];
-    
+
     if (isDeleting) {
       currentText = role.substring(0, charIndex--);
     } else {
       currentText = role.substring(0, charIndex++);
     }
 
-    typewriterElement.textContent = currentText;
+    el.textContent = currentText;
 
     if (!isDeleting && charIndex === role.length) {
       setTimeout(() => isDeleting = true, pause);
@@ -90,8 +99,7 @@
       roleIndex = (roleIndex + 1) % roles.length;
     }
 
-    const delay = isDeleting ? speed / 2 : speed;
-    setTimeout(typeLoop, delay);
+    setTimeout(typeLoop, isDeleting ? speed / 2 : speed);
   }
 
   typeLoop();
