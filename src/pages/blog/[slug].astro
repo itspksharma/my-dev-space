@@ -29,6 +29,29 @@ const allPosts = (await getCollection("blog"))
   title={`${post.data.title} | AskDevPK`}
   description={post.data.description}
 >
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "author": {
+    "@type": "Person",
+    "name": "Pawan Kumar Sharma"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AskDevPK",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://askdevpk.me/favicon.svg"
+    }
+  },
+  "datePublished": post.data.pubDate,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://askdevpk.me/blog/${post.slug}`
+  }
+})} />
 
 <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-indigo-500 z-50" style="width:0%"></div>
 
