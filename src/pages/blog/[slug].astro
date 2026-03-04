@@ -34,6 +34,7 @@ const allPosts = (await getCollection("blog"))
 
 <section class="max-w-5xl mx-auto px-6 py-24 grid lg:grid-cols-[1fr_250px] gap-16">
 
+<!-- ARTICLE -->
 <div>
 
 <h1 class="text-4xl font-bold text-white mb-4">
@@ -57,6 +58,8 @@ day: "numeric"
 
 </div>
 
+<!-- TAGS -->
+
 {post.data.tags && (
 <div class="flex flex-wrap gap-2 mb-10">
 {post.data.tags.map(tag => (
@@ -67,9 +70,13 @@ day: "numeric"
 </div>
 )}
 
+<!-- IMAGE -->
+
 {post.data.image && (
 <img src={post.data.image} class="rounded-xl mb-10 w-full" loading="lazy"/>
 )}
+
+<!-- CONTENT -->
 
 <article class="prose prose-invert prose-indigo max-w-none">
 <Content />
@@ -112,7 +119,24 @@ Copy Link
 
 </div>
 
-<!-- RELATED -->
+<!-- LIKE -->
+
+<div class="mt-12 flex items-center gap-4">
+
+<button
+id="like-btn"
+class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm px-5 py-2 rounded-lg transition"
+>
+👍 Like this article
+</button>
+
+<p class="text-gray-400 text-sm">
+Login with GitHub below to react
+</p>
+
+</div>
+
+<!-- RELATED ARTICLES -->
 
 {allPosts.length > 0 && (
 <div class="mt-20">
@@ -147,11 +171,37 @@ class="block bg-[#0f172a] border border-white/5 rounded-xl p-6 hover:border-indi
 </div>
 )}
 
+<!-- DISCUSSION -->
+
+<div class="mt-24">
+
+<h3 class="text-2xl font-semibold text-white mb-8">
+Discussion
+</h3>
+
+<script
+src="https://giscus.app/client.js"
+data-repo="itspksharma/my-dev-space"
+data-repo-id="R_kgDOPXSUQw"
+data-category="General"
+data-category-id="DIC_kwDOPXSUQ84C3scn"
+data-mapping="pathname"
+data-reactions-enabled="1"
+data-input-position="bottom"
+data-theme="preferred_color_scheme"
+data-lang="en"
+crossorigin="anonymous"
+async>
+</script>
+
 </div>
 
-<!-- TOC -->
+</div>
+
+<!-- TABLE OF CONTENTS -->
 
 {headings.length > 0 && (
+
 <aside class="hidden lg:block sticky top-32 h-fit">
 
 <h3 class="text-white font-semibold mb-4">
@@ -173,6 +223,7 @@ Contents
 </ul>
 
 </aside>
+
 )}
 
 </section>
@@ -195,8 +246,7 @@ progressBar.style.width = progress + "%";
 
 });
 
-
-/* COPY LINK BUTTON */
+/* COPY LINK */
 
 const copyLink = document.getElementById("copy-link");
 
@@ -220,8 +270,7 @@ copyLink.classList.remove("bg-green-600");
 
 }
 
-
-/* COPY CODE BLOCK */
+/* COPY CODE */
 
 document.querySelectorAll("pre").forEach((block) => {
 
@@ -234,6 +283,7 @@ wrapper.appendChild(block);
 const button = document.createElement("button");
 
 button.innerText = "Copy";
+
 button.className =
 "absolute top-2 right-2 text-xs bg-gray-800 text-white px-2 py-1 rounded transition";
 
@@ -256,6 +306,28 @@ button.classList.remove("bg-green-600");
 });
 
 });
+
+/* LIKE BUTTON SCROLL */
+
+const likeBtn = document.getElementById("like-btn");
+
+if (likeBtn) {
+
+likeBtn.addEventListener("click", () => {
+
+const giscus = document.querySelector("iframe.giscus-frame");
+
+if (giscus) {
+
+giscus.scrollIntoView({
+behavior: "smooth"
+});
+
+}
+
+});
+
+}
 
 });
 
