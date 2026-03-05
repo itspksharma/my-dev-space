@@ -99,26 +99,14 @@ askdevpk
 
 # 📷 Screenshots
 
-Screenshots can be stored inside the **public folder**.
 
-Example:
+![Home](public/Home.png)
 
-```text
-public/home.png
-public/projects.png
-public/blog.png
-public/services.png
-```
+![Projects](public/Projects.png)
 
-Example usage in README:
+![Blog](public/Blogs.png)
 
-![Home](public/home.png)
-
-![Projects](public/projects.png)
-
-![Blog](public/blog.png)
-
-![Services](public/services.png)
+![Services](public/Services.png)
 
 ---
 
