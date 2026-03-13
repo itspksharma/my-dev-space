@@ -2,6 +2,8 @@ backend:
   name: github
   repo: itspksharma/my-dev-space
   branch: main
+  base_url: https://cms-auth.pawansharma-rkl.workers.dev
+  auth_endpoint: auth
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
