@@ -3,6 +3,10 @@ backend:
   repo: itspksharma/my-dev-space
   branch: main
 
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  site_id: 1625595d-e4c2-4b90-8a4e-beb0255e1a46
+
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
