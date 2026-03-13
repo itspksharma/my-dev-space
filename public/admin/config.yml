@@ -1,0 +1,38 @@
+backend:
+  name: github
+  repo: itspksharma/my-dev-space
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: https://askdevpk.me
+
+collections:
+
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+
+      - { label: "Description", name: "description", widget: "text" }
+
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+
+      - { label: "Updated Date", name: "updatedDate", widget: "datetime", required: false }
+
+      - { label: "Author", name: "author", widget: "string", default: "Pawan Kumar" }
+
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+
+      - { label: "Image", name: "image", widget: "image", required: false }
+
+      - { label: "Body", name: "body", widget: "markdown" }
